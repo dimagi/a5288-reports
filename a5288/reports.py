@@ -23,8 +23,8 @@ class MissedCallbackReport(CustomProjectReport):
     
     def get_missed_callback_report_context(self, domain, end_date=None):
         group_id = None
-        if hasattr(self.request, "couch_user") and self.request.couch_user is not None and self.request.couch_user.is_commcare_user():
-            group_list = self.request.couch_user.get_group_ids()
+        if hasattr(self.report_request, "couch_user") and self.report_request.couch_user is not None and self.report_request.couch_user.is_commcare_user():
+            group_list = self.report_request.couch_user.get_group_ids()
             if len(group_list) > 0:
                 group_id = group_list[0]
         #
